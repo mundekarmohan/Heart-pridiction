@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heart Disease Prediction</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Heart Disease Prediction</h1>
+
+            <p>
+                Enter the patient information to generate a
+                machine-learning prediction.
+            </p>
+        </div>
+
+        <form id="predictionForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input
+                        type="number"
+                        id="age"
+                        min="1"
+                        max="120"
+                        placeholder="Enter age"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+
+                    <select id="sex" required>
+                        <option value="">Select</option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cp">Chest Pain Type</label>
+
+                    <select id="cp" required>
+                        <option value="">Select</option>
+                        <option value="0">Type 0</option>
+                        <option value="1">Type 1</option>
+                        <option value="2">Type 2</option>
+                        <option value="3">Type 3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="trestbps">Resting Blood Pressure</label>
+
+                    <input
+                        type="number"
+                        id="trestbps"
+                        placeholder="e.g. 120"
+                        required
+                    >
+
+                    <small>mm Hg</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="chol">Cholesterol</label>
+
+                    <input
+                        type="number"
+                        id="chol"
+                        placeholder="e.g. 200"
+                        required
+                    >
+
+                    <small>mg/dL</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="fbs">Fasting Blood Sugar</label>
+
+                    <select id="fbs" required>
+                        <option value="">Select</option>
+                        <option value="0">0 — ≤ 120 mg/dL</option>
+                        <option value="1">1 — &gt; 120 mg/dL</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="restecg">Resting ECG</label>
+
+                    <select id="restecg" required>
+                        <option value="">Select</option>
+                        <option value="0">Type 0</option>
+                        <option value="1">Type 1</option>
+                        <option value="2">Type 2</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="thalach">Maximum Heart Rate</label>
+
+                    <input
+                        type="number"
+                        id="thalach"
+                        placeholder="e.g. 150"
+                        required
+                    >
+
+                    <small>Maximum heart rate achieved</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="exang">Exercise-Induced Angina</label>
+
+                    <select id="exang" required>
+                        <option value="">Select</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="oldpeak">Oldpeak</label>
+
+                    <input
+                        type="number"
+                        id="oldpeak"
+                        min="0"
+                        max="10"
+                        step="0.1"
+                        placeholder="e.g. 1.0"
+                        required
+                    >
+
+                    <small>ST depression</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="slope">ST Segment Slope</label>
+
+                    <select id="slope" required>
+                        <option value="">Select</option>
+                        <option value="0">Type 0</option>
+                        <option value="1">Type 1</option>
+                        <option value="2">Type 2</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ca">Major Vessels</label>
+
+                    <select id="ca" required>
+                        <option value="">Select</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+
+                    <small>Number of major vessels</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="thal">Thal</label>
+
+                    <select id="thal" required>
+                        <option value="">Select</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+
+                    <small>Dataset category code</small>
+                </div>
+
+            </div>
+
+            <button type="submit" id="predictButton">
+                Predict
+            </button>
+
+        </form>
+
+        <div id="loading" class="loading hidden">
+            Making prediction...
+        </div>
+
+        <div id="result" class="result hidden">
+
+            <h2 id="resultTitle"></h2>
+
+            <p>
+                Model probability:
+                <strong id="probability"></strong>
+            </p>
+
+            <div class="disclaimer">
+                This application is for educational and
+                demonstration purposes only. It is not a
+                medical diagnosis or a substitute for
+                professional medical advice.
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
